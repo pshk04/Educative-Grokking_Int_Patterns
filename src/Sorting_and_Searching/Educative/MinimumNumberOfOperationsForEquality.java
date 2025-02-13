@@ -23,7 +23,7 @@ public class MinimumNumberOfOperationsForEquality {
 
     /**
      * OPTIMIZED
-     * Time Complexity: O(n log n + n + m log n) = O(m log n)
+     * Time Complexity: O(n log n + n + m log n) = O((m + n) log n)
      * @param nums
      * @param queries
      * @return
