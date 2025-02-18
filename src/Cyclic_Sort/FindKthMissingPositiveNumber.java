@@ -16,6 +16,12 @@ public class FindKthMissingPositiveNumber {
         }
     }
 
+    /**
+     * Optimised: Time Complexity - O(N)
+     * @param result
+     * @param k
+     * @return
+     */
     public static int findKthMissingPositiveNumber(int[] result, int k){
         int kthMissingNumber = 0, index = 0;
 

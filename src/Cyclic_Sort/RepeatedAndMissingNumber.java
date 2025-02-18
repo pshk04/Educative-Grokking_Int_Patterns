@@ -6,9 +6,14 @@ public class RepeatedAndMissingNumber {
 
     public static void main(String[] args) {
         int[] nums = {3,1,2,5,4,7,8,9,10,10};
-        System.out.println("The repeated and missing numbers are: "+ Arrays.toString(findRepeatedAndMissingNumber(nums)));
+        System.out.println("The repeated and missing numbers are: "+ Arrays.toString(findRepeatedAndMissingNumberOptimized(nums)));
     }
 
+    /**
+     * Optimised: Time Complexity - O(N * N)
+     * @param nums
+     * @return
+     */
     public static int[] findRepeatedAndMissingNumber(int[] nums){
         int[] result = new int[2];
 
@@ -28,6 +33,31 @@ public class RepeatedAndMissingNumber {
         }
         return nums;
     }
+
+    /**
+     * Optimised: Time Complexity - O(N)
+     * @param result
+     * @return
+     */
+    public static int[] findRepeatedAndMissingNumberOptimized(int[] result){
+        int[] missingElements = new int[2];
+        int index = 0;
+
+        while(index < result.length){
+            if(index != result[index] - 1){
+                if(result[index] == result[result[index] - 1]){
+                    missingElements[0] = result[index];
+                    missingElements[1] = index + 1;
+                    return missingElements;
+                }
+                result = swap(result, index, result[index] - 1);
+            }else{
+                index++;
+            }
+        }
+        return missingElements;
+    }
+
     public static int[] swap(int[] nums, int index1, int index2){
         int temp = nums[index1];
         nums[index1] = nums[index2];

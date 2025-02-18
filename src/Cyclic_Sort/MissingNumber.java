@@ -15,6 +15,11 @@ public class MissingNumber {
         }
     }
 
+    /**
+     * Optimised: Time Complexity - O(N)
+     * @param result
+     * @return
+     */
     public static int findMissingNumber(int[] result){
 
         int missingNumber = 0, index = 0;
