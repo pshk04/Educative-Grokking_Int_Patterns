@@ -1,11 +1,11 @@
-package Circular_Sort;
+package Cyclic_Sort;
 
 import java.util.Arrays;
 
 public class CyclicSort {
 
     public static void main(String[] args) {
-        int[] nums = {3,2,1,5,4,10,9,7,8,6};
+        int[] nums = {6,7,9,2,3,13,11};
         System.out.println("Array after sorting: "+ Arrays.toString(cyclicSort(nums)));
     }
 
