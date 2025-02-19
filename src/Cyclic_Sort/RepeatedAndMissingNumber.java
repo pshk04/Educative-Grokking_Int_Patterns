@@ -5,8 +5,13 @@ import java.util.Arrays;
 public class RepeatedAndMissingNumber {
 
     public static void main(String[] args) {
-        int[] nums = {3,1,2,5,4,7,8,9,10,10};
-        System.out.println("The repeated and missing numbers are: "+ Arrays.toString(findRepeatedAndMissingNumberOptimized(nums)));
+        int[][] nums = {
+                {4,1,2,1,6,3},
+                {3,1,2,3,6,4}
+        };
+        for(int[] numArray : nums) {
+            System.out.println("The repeated and missing numbers are: " + Arrays.toString(findRepeatedAndMissingNumberOptimized(numArray)));
+        }
     }
 
     /**
@@ -39,20 +44,27 @@ public class RepeatedAndMissingNumber {
      * @param result
      * @return
      */
-    public static int[] findRepeatedAndMissingNumberOptimized(int[] result){
+    public static int[] findRepeatedAndMissingNumberOptimized(int[] result){ // 3,1,2,3,6,4
         int[] missingElements = new int[2];
         int index = 0;
 
         while(index < result.length){
-            if(index != result[index] - 1){
+            if(result[index] <= result.length && (index + 1) != result[index]){
                 if(result[index] == result[result[index] - 1]){
                     missingElements[0] = result[index];
-                    missingElements[1] = index + 1;
-                    return missingElements;
+                    index++;
+                }else {
+                    result = swap(result, index, result[index] - 1);
                 }
-                result = swap(result, index, result[index] - 1);
             }else{
                 index++;
+            }
+        }
+        System.out.println(Arrays.toString(result));
+
+        for(int i = 0; i < result.length; i++){
+            if((i + 1) != result[i]){
+                missingElements[1] = (i + 1);
             }
         }
         return missingElements;
